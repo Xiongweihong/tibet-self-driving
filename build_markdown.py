@@ -1,0 +1,62 @@
+import json
+import build_46day_app
+
+itinerary = build_46day_app.itinerary_46
+
+md_lines = []
+md_lines.append('# 西藏全境 46 天「物候避汛·零内耗」纯玩自驾路书与高德车机导航全案\n')
+md_lines.append('> **重大战略升级**：以 68 天推演总案为底版，全面剔除 19 次无效换宿与雨季地质风险，收敛为 **46 天黄金闭环** · 进藏走 G318 翡翠阶梯 · 回归走 G317 川藏北线 · 攀枝花直达天全（途中不观景） · 丹巴顺江绝壁道返程（100% 零回头路） · 49 个行政区全覆盖（含定日珠峰合规解锁） · 避开 7 月横断山脉暴雨汛期\n')
+md_lines.append('---\n')
+md_lines.append('## 📌 46天黄金案战略指标看板\n')
+md_lines.append('| 核心维度 | 规划参数与医学保障 |')
+md_lines.append('| :--- | :--- |')
+md_lines.append('| **起讫路线** | 四川攀枝花市 ➔ 四川攀枝花市（100% 闭环，零回头路，总里程约 **7,200 km**） |')
+md_lines.append('| **黄金窗口** | **5月10日出发 ➔ 6月24日凯旋**（用足藏区全年最晴好物候，6月25日暴雨汛期前出山） |')
+md_lines.append('| **人员编组** | 1位主驾（35岁男·单点防御巡航）+ 2位长辈（60+岁·心脑血管阶梯防护）+ 家庭爱犬（全地形携宠） |')
+md_lines.append('| **边防证件** | 林芝、山南、阿里、日喀则**四证合一**（户籍地出入境办齐，219南线东出与珠峰全境合规） |')
+md_lines.append('| **换宿优化** | 从原案 48 次高频换宿剧降至 **28 次**（核心胜境均设“双夜连宿”，消灭打包内耗） |')
+md_lines.append('| **车机导航** | 46 天逐日全配**高德地图车机/手机版途经点导航点位**与**单行一键复制输入串** |\n')
+md_lines.append('---\n')
+md_lines.append('## 🗺️ 46天全域拓扑与七大战略阶段\n')
+md_lines.append('```')
+md_lines.append('【第一阶段：川西翡翠阶梯与稳健代偿（D01 - D04）】')
+md_lines.append(' 攀枝花 ➔ G5直达高速(不观景) ➔ 雅安天全318大本营 ➔ 二郎山隧道 ➔ 泸定 ➔ 康定(双夜蓄能) ➔ 折多山车览 ➔ 雅江 ➔ 巴塘')
+md_lines.append(' （严格控高：前7晚住宿锁死在 3000m 以下，长辈骨髓红细胞平稳代偿，无痛渡过适应期）\n')
+md_lines.append('【第二阶段：横断深切与林芝雪域绿肺（D05 - D09）】')
+md_lines.append(' 巴塘(天气等晴) ➔ 金沙江大桥入藏 ➔ 芒康 ➔ 如美 ➔ 觉巴山 ➔ 东达山5130 ➔ 八宿(高飞低宿) ➔ 然乌湖 ➔ 米堆观光车 ➔ 波密古乡(双夜纯氧)')
+md_lines.append(' （消灭左贡低质硬熬，下沉八宿；波密极高负氧离子休耕）\n')
+md_lines.append('【第三阶段：藏南雅江摇篮与圣湖羊卓（D10 - D16）】')
+md_lines.append(' 波密 ➔ 鲁朗石锅鸡 ➔ 色季拉山 ➔ 索松村(双夜直面南迦巴瓦) ➔ 朗县核桃林 ➔ 加查 ➔ 桑日 ➔ 山南泽当 ➔ 羊卓雍措东拉乡 ➔ 拉萨(连住3晚)')
+md_lines.append(' （消灭拉萨南下折返空耗260km，泽当往拉萨顺路穿越羊湖；第15天血氧峰值登布达拉宫）\n')
+md_lines.append('【第四阶段：藏北一错再错与西极阿里贯通（D17 - D25）】')
+md_lines.append(' 拉萨 ➔ 当雄 ➔ 念青唐古拉 ➔ 班戈4700(G2门试金夜) ➔ 色林错 ➔ 尼玛(双夜·当惹雍错) ➔ 改则 ➔ 阿里狮泉河(连住3晚·三甲医疗) ➔ 班公湖 ➔ 札达土林(双夜·3700m氧吧)')
+md_lines.append(' （消灭革吉换宿内耗，直降狮泉河首府；札达低海拔深睡修复）\n')
+md_lines.append('【第五阶段：神山圣湖与珠峰期权兑现（D26 - D32）】')
+md_lines.append(' 札达 ➔ 冈仁波齐 ➔ 玛旁雍错 ➔ 普兰孔雀河谷(双夜) ➔ G219东出 ➔ 萨嘎 ➔ 定日白坝(G3门激活) ➔ 加乌拉山口5210 ➔ 绒布寺珠峰近观 ➔ 日喀则 ➔ 拉萨(远征后大休耕)')
+md_lines.append(' （消灭仲巴恶劣住宿；兑现五座8000m群峰同框高光）\n')
+md_lines.append('【第六阶段：G317川藏北线·人文康巴大东归（D33 - D41）】')
+md_lines.append(' 拉萨 ➔ G6高速直飞那曲 ➔ 索县赞丹寺 ➔ 丁青孜珠寺平视 ➔ 类乌齐 ➔ 昌都(双夜) ➔ 江达 ➔ 岗妥大桥入川 ➔ 德格印经院 ➔ 甘孜白塔 ➔ 丹巴中路藏寨(双夜·1860m超富氧大换气)')
+md_lines.append(' （消灭当雄、类乌齐、道孚等破碎段；丹巴纯氧让全家心肺彻底解乏）\n')
+md_lines.append('【第七阶段：绝壁秘境·无回头路凯旋归巢（D42 - D46）】')
+md_lines.append(' 丹巴 ➔ S211大渡河峡谷绝壁道 ➔ 泸定 ➔ 雅安石棉温泉 ➔ S66/G245乐山金口大峡谷(千米绝壁) ➔ 乌斯河 ➔ 冕宁 ➔ 西昌邛海(双夜休整) ➔ 德昌风电 ➔ 米易 ➔ 攀枝花(荣耀凯旋！)')
+md_lines.append(' （回程通过绝壁省道与金口大峡谷完美补完全部风景，达成真·100%零回头路大闭环！）')
+md_lines.append('```\n')
+md_lines.append('---\n')
+md_lines.append('## 🚗 46天逐日纯玩详细路书与高德车机导航全案\n')
+
+for item in itinerary:
+    md_lines.append(f'### 【DAY {item["day"]:02d}】{item["route"]}')
+    md_lines.append(f'* **定位阶段**：{item["stage"]} | **安全标识**：{item["safe"]} | **下榻海拔**：{item["alt"]}')
+    md_lines.append(f'* **路程工时**：单日里程 **{item["km"]}** | 纯驾约 **{item["time"]}**')
+    md_lines.append(f'* **高德车机导航设置**：')
+    md_lines.append(f'  * {item["nav"]}')
+    md_lines.append(f'* **高德单行复制指令**：')
+    md_lines.append(f'  `{item["nav"]}`')
+    md_lines.append(f'* **纯玩核心视界**：{item["scenic"]}')
+    md_lines.append(f'* **农夫适老美食**：{item["food"]}')
+    md_lines.append(f'* **棋手避坑指南**：{item["warn"]}\n')
+
+with open('西藏自驾46天沉浸式纯玩行程路书.md', 'w', encoding='utf-8') as f:
+    f.write('\n'.join(md_lines))
+
+print('Successfully generated 西藏自驾46天沉浸式纯玩行程路书.md')
