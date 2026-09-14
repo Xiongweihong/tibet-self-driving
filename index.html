@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHRONO-LOOP 5.0 | 46天西藏全境动态可视化路书与全域纯玩指挥舱</title>
+  <title>CHRONO-LOOP 5.0 | 46天西藏全境「物候避汛·全维保障」沉浸式纯玩总控台</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -193,6 +193,43 @@
     }
 
     /* --- TAB 1: COCKPIT STYLES --- */
+    
+    /* Strategic Phase Bar */
+    .phase-bar {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.4rem 0 0.8rem 0;
+      margin-bottom: 0.6rem;
+      scrollbar-width: thin;
+    }
+    .phase-chip {
+      flex-shrink: 0;
+      padding: 6px 13px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .phase-chip:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #fff;
+    }
+    .phase-chip.active {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: var(--cyan-glow);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.35);
+    }
+
     .playback-bar {
       background: var(--bg-panel);
       border: 1px solid var(--border-color);
@@ -779,9 +816,9 @@
       <div class="brand-title-wrap">
         <div class="protocol-badge">
           <div class="pulse-dot"></div>
-          <span>CHRONO-LOOP 5.0 · 西藏自驾数字孪生全景指挥舱</span>
+          <span>CHRONO-LOOP 5.0 · 西藏自驾「物候避汛·全维保障」数字孪生总控台</span>
         </div>
-        <h1>46天西藏全境全疆域动态可视化路书</h1>
+        <h1>46天西藏全境动态可视化路书与纯玩指挥舱</h1>
       </div>
 
       <!-- Navigation Tabs -->
@@ -812,15 +849,23 @@
         </div>
         <div class="telemetry-pill">
           <span class="tel-label">睡眠海拔</span>
-          <span class="tel-val" id="hud-alt" style="color: var(--emerald-glow);">1500m</span>
+          <span class="tel-val" id="hud-alt" style="color: var(--emerald-glow);">750m</span>
         </div>
         <div class="telemetry-pill">
           <span class="tel-label">累计里程</span>
-          <span class="tel-val" id="hud-km">190 km</span>
+          <span class="tel-val" id="hud-km">520 km</span>
         </div>
         <div class="telemetry-pill">
-          <span class="tel-label">边防合规校验</span>
-          <span class="tel-val" style="color: #34d399; font-size: 0.82rem;">✅ 规避日喀则</span>
+          <span class="tel-label">黄金物候窗口</span>
+          <span class="tel-val" style="color: #38bdf8; font-size: 0.82rem;">5.10~6.24 (7200km)</span>
+        </div>
+        <div class="telemetry-pill">
+          <span class="tel-label">边防架构</span>
+          <span class="tel-val" style="color: #34d399; font-size: 0.82rem;">✅ 四证合一·拉萨加签</span>
+        </div>
+        <div class="telemetry-pill">
+          <span class="tel-label">换宿负荷优化</span>
+          <span class="tel-val" style="color: #fbbf24; font-size: 0.82rem;">28次休耕 (日驾3.2h)</span>
         </div>
       </div>
     </div>
@@ -830,6 +875,17 @@
 
     <!-- ================= TAB 1: COCKPIT ================= -->
     <div class="tab-pane active" id="pane-cockpit">
+
+      <!-- 7 Strategic Phases Quick Jump Deck -->
+      <div class="phase-bar" id="phase-bar">
+        <div class="phase-chip active" onclick="jumpToPhase(0)" id="phase-0"><span>🟢</span>一·川西翡翠梯 (D01-D04)</div>
+        <div class="phase-chip" onclick="jumpToPhase(4)" id="phase-1"><span>🌲</span>二·横断深切与绿肺 (D05-D09)</div>
+        <div class="phase-chip" onclick="jumpToPhase(9)" id="phase-2"><span>🌊</span>三·藏南雅江与圣湖 (D10-D16)</div>
+        <div class="phase-chip" onclick="jumpToPhase(16)" id="phase-3"><span>🪨</span>四·藏北一错与阿里 (D17-D25)</div>
+        <div class="phase-chip" onclick="jumpToPhase(25)" id="phase-4"><span>🏔️</span>五·神山圣湖与珠峰 (D26-D32)</div>
+        <div class="phase-chip" onclick="jumpToPhase(32)" id="phase-5"><span>🏯</span>六·G317康巴大东归 (D33-D41)</div>
+        <div class="phase-chip" onclick="jumpToPhase(41)" id="phase-6"><span>🏆</span>七·绝壁零回头路凯旋 (D42-D46)</div>
+      </div>
 
       <!-- Playback Bar -->
       <div class="playback-bar">
@@ -880,8 +936,14 @@
                 <linearGradient id="trailAli" x1="0%" y1="100%" x2="100%" y2="0%">
                   <stop offset="0%" stop-color="#f59e0b" /><stop offset="100%" stop-color="#fbbf24" />
                 </linearGradient>
+                <linearGradient id="trailEverest" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#f43f5e" /><stop offset="100%" stop-color="#fb923c" />
+                </linearGradient>
                 <linearGradient id="trailG317" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#10b981" /><stop offset="100%" stop-color="#059669" />
+                </linearGradient>
+                <linearGradient id="trailReturn" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#10b981" /><stop offset="50%" stop-color="#38bdf8" /><stop offset="100%" stop-color="#f59e0b" />
                 </linearGradient>
                 <filter id="glowEffect">
                   <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -895,29 +957,35 @@
               <line x1="50" y1="360" x2="1050" y2="360" stroke="rgba(255,255,255,0.03)" stroke-dasharray="4" />
 
               <!-- Region Watermarks -->
-              <text x="40" y="45" fill="rgba(255,255,255,0.18)" font-size="12" font-weight="700">【阿里全境 / 持阿里边防证】</text>
-              <text x="380" y="45" fill="rgba(255,255,255,0.18)" font-size="12" font-weight="700">【藏北内陆 / 免边防证走廊】</text>
-              <text x="820" y="45" fill="rgba(255,255,255,0.18)" font-size="12" font-weight="700">【川西雅安·大渡河与攀西】</text>
+              <text x="35" y="45" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="700">【西极阿里·持阿里边防证】</text>
+              <text x="210" y="415" fill="rgba(244,63,94,0.3)" font-size="11" font-weight="700">【日喀则定日·珠峰加签东出】</text>
+              <text x="310" y="45" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="700">【藏北一错再错·免边防走廊】</text>
+              <text x="560" y="140" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="700">【川藏北线G317·人文康巴】</text>
+              <text x="820" y="45" fill="rgba(255,255,255,0.22)" font-size="11" font-weight="700">【川西G318·大渡河与攀西】</text>
 
-              <!-- Trail 1: G318 Outbound -->
-              <path d="M 980 440 L 950 360 L 900 240 L 830 250 L 750 280 L 670 290 L 610 290 L 550 270 L 490 270 L 450 280" 
-                    fill="none" stroke="url(#trailG318)" stroke-width="4.5" stroke-linecap="round" opacity="0.65" />
+              <!-- Trail 1: 川西进藏翡翠梯与雪域江南 (D01-D10) -->
+              <path d="M 980 440 L 910 240 L 900 240 L 780 270 L 700 285 L 610 290 L 550 270 L 470 275" 
+                    fill="none" stroke="url(#trailG318)" stroke-width="4.5" stroke-linecap="round" opacity="0.8" />
 
-              <!-- Trail 2: Nyingchi -> Shannan -> Yamdrok -> Lhasa -->
-              <path d="M 450 280 L 410 330 L 370 340 L 390 260" 
-                    fill="none" stroke="url(#trailShannan)" stroke-width="4.5" stroke-linecap="round" opacity="0.65" />
+              <!-- Trail 2: 藏南雅江摇篮与圣湖羊卓 (D11-D16) -->
+              <path d="M 470 275 L 430 320 L 400 330 L 370 340 L 390 260" 
+                    fill="none" stroke="url(#trailShannan)" stroke-width="4.5" stroke-linecap="round" opacity="0.8" />
 
-              <!-- Trail 3: Lhasa -> Damxung -> Baingoin -> Nyima -> Gerze -> Shiquanhe -->
-              <path d="M 390 260 L 340 200 L 260 190 L 170 200 L 90 230" 
-                    fill="none" stroke="url(#trailAli)" stroke-width="4.5" stroke-linecap="round" opacity="0.65" />
+              <!-- Trail 3: 藏北一错再错与西极阿里贯通 (D17-D25) -->
+              <path d="M 390 260 L 340 200 L 260 190 L 170 200 L 90 230 L 70 140 L 90 230 L 65 310" 
+                    fill="none" stroke="url(#trailAli)" stroke-width="4.5" stroke-linecap="round" opacity="0.8" />
 
-              <!-- Trail 3B: Ali internal (Zanda -> Burang -> Pangong) -->
-              <path d="M 90 230 L 65 310 L 105 370 L 90 230 L 70 140 L 90 230" 
-                    fill="none" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="4 3" opacity="0.7" />
+              <!-- Trail 4: 神山圣湖与珠峰期权南线东出闭环 (D26-D32) -->
+              <path d="M 65 310 L 105 370 L 180 380 L 260 380 L 320 360 L 390 260" 
+                    fill="none" stroke="url(#trailEverest)" stroke-width="4.5" stroke-dasharray="6 3" stroke-linecap="round" opacity="0.85" />
 
-              <!-- Trail 4: G317 Return -->
-              <path d="M 90 230 L 170 200 L 260 190 L 380 170 L 520 170 L 620 170 L 710 180 L 810 220 L 900 310 L 950 360 L 980 440" 
-                    fill="none" stroke="url(#trailG317)" stroke-width="4.5" stroke-dasharray="8 4" stroke-linecap="round" opacity="0.65" />
+              <!-- Trail 5: G317川藏北线·康巴大东归 (D33-D41) -->
+              <path d="M 390 260 L 380 190 L 440 180 L 500 175 L 560 170 L 620 170 L 660 175 L 720 180" 
+                    fill="none" stroke="url(#trailG317)" stroke-width="4.5" stroke-linecap="round" opacity="0.8" />
+
+              <!-- Trail 6: 大渡河千仞绝壁与金口大峡谷零回头路荣耀凯旋 (D42-D46) -->
+              <path d="M 720 180 L 810 220 L 900 320 L 950 380 L 980 440" 
+                    fill="none" stroke="url(#trailReturn)" stroke-width="4.5" stroke-dasharray="8 4" stroke-linecap="round" opacity="0.8" />
 
               <!-- Waypoint Anchors -->
               <g id="svg-nodes-group"></g>
@@ -940,36 +1008,36 @@
           <div class="spot-top">
             <div class="spot-day-badge">
               <span id="spot-day">DAY 01</span>
-              <span class="spot-stage-chip" id="spot-stage">攀西走廊</span>
+              <span class="spot-stage-chip" id="spot-stage">千里奔袭</span>
             </div>
-            <div class="spot-alt-chip" id="spot-alt">🌙 宿: 1500m</div>
+            <div class="spot-alt-chip" id="spot-alt">🌙 宿: 750m</div>
           </div>
 
-          <div class="spot-route-name" id="spot-route">攀枝花 ➔ 德昌风车 ➔ 西昌邛海</div>
+          <div class="spot-route-name" id="spot-route">攀枝花 ➔ G5京昆高速直达 ➔ 雅安天全318大本营</div>
 
           <div class="spot-metrics-grid">
-            <div class="spot-metric-tag" id="spot-time">⏱️ 纯驾 3.5h</div>
-            <div class="spot-metric-tag" id="spot-km">🛣️ 190 km</div>
-            <div class="spot-metric-tag" id="spot-safe">🛡️ 边防证免检</div>
+            <div class="spot-metric-tag" id="spot-time">⏱️ 纯驾 6.5h</div>
+            <div class="spot-metric-tag" id="spot-km">🛣️ 520 km</div>
+            <div class="spot-metric-tag" id="spot-safe">🛡️ 免边防证</div>
           </div>
 
           <div class="spot-block">
             <div class="spot-block-title">✨ 今日核心纯玩视界 (无台阶/免门票)</div>
-            <div class="spot-block-body" id="spot-scenic">安宁河谷平原、德昌白色风机群、邛海环湖平坦绿道。</div>
+            <div class="spot-block-body" id="spot-scenic">【纯赶路坚决不观景】沿G5京昆高速一路北上，中途服务区休整换气，直插川藏318起点天全县，为翻山养精蓄锐。</div>
           </div>
 
           <div class="spot-block">
             <div class="spot-block-title title-food">🍲 农夫适老真滋味 (温润高能)</div>
-            <div class="spot-block-body" id="spot-food">西昌鲜菌土鸡清汤锅、邛海清蒸银鱼、现蒸杂粮软糕。</div>
+            <div class="spot-block-body" id="spot-food">天全思经高山冷水鱼（清汤滚沸极鲜嫩，优质蛋白易消化）、温热土鸡汤，温和养胃。</div>
           </div>
 
           <div class="spot-block">
             <div class="spot-block-title title-warn">🚫 棋手红线避坑指南</div>
-            <div class="spot-block-body" id="spot-warn">避免进西昌过于重油重辣的火盆烧烤街以防肠胃失调。</div>
+            <div class="spot-block-body" id="spot-warn">今日以安全赶路为唯一目标，途中各大风景区坚决不进；天全海拔仅750m，超富氧让全员深度安睡。</div>
           </div>
 
           <div class="spot-nav-action">
-            <span class="nav-str" id="spot-nav">攀枝花市区 -> 德昌县风电场 -> 邛海湿地</span>
+            <span class="nav-str" id="spot-nav">起点: 攀枝花市政府 ➔ 途经点1: 西昌服务区 ➔ 途经点2: 石棉服务区 ➔ 途经点3: 雅安西收费站 ➔ 终点: 天全318自驾大本营</span>
             <button class="btn-copy-nav" onclick="copyActiveNav()">一键复制手机导航</button>
           </div>
         </div>
@@ -1004,18 +1072,12 @@
 
             <!-- Chart Polygon -->
             <polygon points="
-              55,220
-              55,185 90,215 125,120 160,120 195,122 230,115 265,75 300,120 335,95 370,95
-              405,62 440,55 475,55 510,20 545,20 580,30 615,55 650,45 685,30 720,30
-              755,20 790,40 825,80 860,82 895,70 930,165 965,210 1000,200
-              1000,220
+              40,220 40,215 62,120 84,120 106,122 128,122 150,115 172,75 194,120 216,120 238,95 260,95 282,80 304,62 326,55 348,55 370,55 392,20 414,20 436,20 458,20 480,30 502,30 524,30 546,55 568,55 590,45 612,45 634,20 656,30 678,50 700,55 722,55 744,20 766,40 788,45 810,80 832,80 854,80 876,70 898,165 920,165 942,210 964,185 980,185 996,200 1005,200 1005,220
             " fill="url(#chartFillGrad)" />
 
             <!-- Chart Polyline -->
             <polyline points="
-              55,185 90,215 125,120 160,120 195,122 230,115 265,75 300,120 335,95 370,95
-              405,62 440,55 475,55 510,20 545,20 580,30 615,55 650,45 685,30 720,30
-              755,20 790,40 825,80 860,82 895,70 930,165 965,210 1000,200
+              40,215 62,120 84,120 106,122 128,122 150,115 172,75 194,120 216,120 238,95 260,95 282,80 304,62 326,55 348,55 370,55 392,20 414,20 436,20 458,20 480,30 502,30 524,30 546,55 568,55 590,45 612,45 634,20 656,30 678,50 700,55 722,55 744,20 766,40 788,45 810,80 832,80 854,80 876,70 898,165 920,165 942,210 964,185 980,185 996,200 1005,200
             " fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
 
             <!-- Dynamic Indicator -->
@@ -1058,6 +1120,7 @@
           <div class="cat-chip" onclick="selectCategory('藏北内陆湖泊', this)">藏北一错再错</div>
           <div class="cat-chip" onclick="selectCategory('西极阿里全境', this)">西极阿里秘境</div>
           <div class="cat-chip" onclick="selectCategory('川藏北线G317', this)">川藏北线G317</div>
+          <div class="cat-chip" onclick="selectCategory('远眺合规区', this)">珠峰合规区</div>
         </div>
       </div>
 
@@ -1070,66 +1133,140 @@
     <div class="tab-pane" id="pane-safety">
       <div class="protocol-grid">
         
-        <!-- Box 1: Single Driver Pacing -->
+        <!-- Box 1: Single Driver SPOF Defense -->
         <div class="proto-box">
           <div class="proto-box-title">
             <span>🛡️</span>
-            <span>单人驾驶（35岁男独驾）防疲劳防御法</span>
+            <span>单人驾驶（35岁男独驾）单点失效（SPOF）体能托管与防疲劳铁律</span>
           </div>
           <ul class="proto-list">
-            <li><strong>2-2-2 巡航节奏律：</strong>每连续驾驶 2 小时，强制熄火 20 分钟；车上全员下车在安全开阔地做扩胸深呼吸与下肢拉伸。</li>
-            <li><strong>神经与体温抗昏睡：</strong>车内备足云南薄荷脑鼻通吸入棒、冷萃纯苦丁茶、柠檬水；阿里路段紫外线极强，驾驶员全天佩戴防眩偏光镜。</li>
-            <li><strong>碳水节制法：</strong>午餐严禁大量摄入高升糖米面或油炸食物，以防胰岛素骤升导致餐后昏睡；以清炖牛肉、蒸南瓜、坚果为主。</li>
-            <li><strong>下坡制动铁律：</strong>觉巴山、怒江72拐、东达山下坡，必须挂入低速挡（M2/L挡）利用发动机制动，严禁全程踩刹车导致热衰退。</li>
+            <li><strong>2-2-2 巡航节奏律：</strong>每连续驾驶 2 小时，强制熄火 20 分钟；全员下车在安全开阔地做扩胸深呼吸与下肢拉伸；单日纯驾绝不超 5 小时（日均 3.2 小时）。</li>
+            <li><strong>睡眠绝对优先：</strong>每晚保障 8 小时深度安睡，禁止熬夜；午餐严格执行低升糖原则，严禁大碗精制米面碳水，以防胰岛素暴增导致餐后脑缺氧昏睡。</li>
+            <li><strong>神经与体温抗困组合：</strong>车内恒温备足云南薄荷脑鼻通棒、冷萃纯苦丁茶、无糖高浓度柠檬片；阿里与藏北紫外线极强，驾驶员全天佩戴偏光墨镜。</li>
+            <li><strong>长下坡发动机制动：</strong>怒江72拐、觉巴山、东达山长下坡全程切入 M2/L 挡，依靠发动机反拖制动，严禁空挡滑行或长死踩刹车致热衰退。</li>
+            <li><strong>体能托管备援走廊：</strong>随车配备卫星通讯，预锁拉萨、昌都、狮泉河三大核心节点的商业拖车与专业代驾救援热线。</li>
           </ul>
         </div>
 
-        <!-- Box 2: Elderly Cardiovascular & Altitude Care -->
+        <!-- Box 2: Elderly Cardiovascular & DVT Defense -->
         <div class="proto-box">
           <div class="proto-box-title">
             <span>❤️</span>
-            <span>两位长辈（60+岁）心脑血管与低反四维红线</span>
+            <span>银发长辈（60+岁）高原心脑血管与 DVT 肺栓塞防御操典</span>
           </div>
           <ul class="proto-list">
-            <li><strong>前7天绝对控高律：</strong>入藏前7晚严格住宿于海拔 3000m 以下（天全750m ➔ 雅江2600m ➔ 巴塘2580m ➔ 波密2700m ➔ 林芝2900m），使得骨髓平稳合成红细胞。</li>
-            <li><strong>早晚血氧雷达监测：</strong>随身配备2台医用指夹式血氧仪；早起与晚间各测一次，静息血氧需稳定在 80% 以上；低于 75% 立即用车载 10L 医用氧气瓶供氧。</li>
-            <li><strong>极境高海拔开氧策略：</strong>藏北班戈（4700m）、尼玛（4500m）、改则（4500m）夜间酒店必须强制开启中央弥散供氧系统，使客房等效海拔降至2800m。</li>
-            <li><strong>高海拔四不动作：</strong>不高声说话、不疾步快走上台阶、不洗过烫淋浴（洗澡易缺氧且易感冒）、不饮冰凉水。</li>
+            <li><strong>日饮温水定额管理（防脱水高凝）：</strong>高原干燥呼吸脱水速度增加2~3倍，每人每日强制饮用 2.5L 温热水（车载12V烧水壶随时加温水），少量多次，绝不以“不渴”为由不喝。</li>
+            <li><strong>车内 45 分钟小腿泵血操：</strong>行驶途中每隔 45 分钟，提醒长辈在座位上同步做“踝关节屈伸与足背勾踩循环 10 次”，利用小腿肌肉泵促使下肢静脉血液回流，阻断深静脉血栓（DVT）与肺栓塞。</li>
+            <li><strong>早晚双指夹血氧仪台账：</strong>随身配备 2 台医用指夹式血氧仪早晚监测；静息 SpO2 稳定在 80% 以上正常；低于 75% 立即用车载 10L 医用氧气瓶鼻导管低流量给氧 30 分钟。</li>
+            <li><strong>前 7 晚绝对控高律：</strong>入藏前7晚严格住宿在海拔 3000m 以下（天全750m ➔ 康定2560m ➔ 巴塘2580m ➔ 如美2640m ➔ 波密2600m），长辈骨髓红细胞平稳代偿，无痛渡过适应期。</li>
+            <li><strong>极境高海拔中央开氧策略：</strong>藏北班戈（4700m）、尼玛（4500m）、改则（4500m）夜间酒店必须强制开启中央弥散供氧，将客房等效海拔降至2800m。</li>
           </ul>
         </div>
 
-        <!-- Box 3: Pet Safety Shield -->
+        <!-- Box 3: Mobile Toilet System -->
         <div class="proto-box">
           <div class="proto-box-title">
-            <span>🐕</span>
-            <span>携宠（家庭爱犬）全地形安全护甲指南</span>
+            <span>🚻</span>
+            <span>车载移动隐私卫生间作业规程（彻底破解长辈恐惧性限水）</span>
           </div>
           <ul class="proto-list">
-            <li><strong>防烈犬与猛禽铁律：</strong>阿里与藏北无人区常有流浪藏獒与金雕猛禽，爱犬下车必须全程拴紧防爆冲胸背带，严禁让其独自追逐旱獭。</li>
-            <li><strong>肉垫护理与粗糙碎石：</strong>札达土林、班公湖碎石滩地表干硬尖锐，每天归寝用温水清洁脚垫并涂抹凡士林滋润，防干裂出血。</li>
-            <li><strong>水源安全防线：</strong>藏北色林错、拉昂错多为高盐碱、高矿化度水质，严禁犬只饮用湖水以免引起急性肾衰；全程只喂白开水。</li>
-            <li><strong>低温保暖防护：</strong>阿里与藏北夜间气温降至零度以下，犬只必须睡在客房内防风窝垫中，加穿宠物防风保暖马甲。</li>
+            <li><strong>痛点根源破解：</strong>藏北阿里动辄 150km 荒无人烟，长辈因极怕野外无遮挡暴露如厕而强行忍耐不喝水，直接诱发血液高凝脱水危机。车载移动卫生间彻底解决如厕尊严！</li>
+            <li><strong>装备定置标准：</strong>后备箱最外侧标配：1 秒快开式加厚防透光折叠更衣帐篷 1 顶 + 加固铝合金折叠坐便椅 1 套（承重≥120kg） + 高分子凝固除臭降解袋 2 箱。</li>
+            <li><strong>极简作业流程：</strong>开阔安全路肩靠边 ➔ 开启双闪 ➔ 30 秒拉开遮阳帐篷 ➔ 套入除臭凝固袋 ➔ 长辈从容如厕 ➔ 扎口密封投放至沿线分类垃圾桶。</li>
           </ul>
         </div>
 
-        <!-- Box 5: Major Historical Geological Hazards & Defense -->
+        <!-- Box 4: Mechanical & 95 Fuel Supply Chain -->
+        <div class="proto-box">
+          <div class="proto-box-title">
+            <span>⚙️</span>
+            <span>机械极端工况退化与 95 号汽油断供链防线</span>
+          </div>
+          <ul class="proto-list">
+            <li><strong>辛烷值提升剂注入时机：</strong>尼玛、改则、革吉、萨嘎等偏远加油站常年无 95 号汽油；后备箱预备 8 瓶高浓度辛烷值提升剂（MMT/聚醚胺配方），遇 92 号油时先倒入 1 瓶再加满油消除重度爆震。</li>
+            <li><strong>备胎冷态气压定额：</strong>出发前全尺寸备胎冷态打气至 2.8 bar，四轮运行胎压 2.4~2.5 bar；随车配备双缸 12V 金属数显充气泵与补胎胶条工具盒。</li>
+            <li><strong>翻越大坂散热管理：</strong>翻越东达山（5130m）、加乌拉（5210m）等极高垭口爬重坡后，严禁立即熄火，怠速运转 3 分钟促使增压器机油平稳冷却。</li>
+          </ul>
+        </div>
+
+        <!-- Box 5: Major Historical Geo-Hazards -->
         <div class="proto-box" style="border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239, 68, 68, 0.08) 0%, rgba(13, 19, 34, 0.7) 100%);">
           <div class="proto-box-title" style="color: #fca5a5;">
             <span>🚨</span>
-            <span>沿线 12 大历史重大地灾黑点（滑坡/泥石流/落石/堰塞湖）防御操典</span>
+            <span>沿线 12 大历史重大地灾黑点档案与五大保命操典（提级防御版）</span>
           </div>
           <ul class="proto-list">
-            <li><strong>海通沟与通麦历史黑点：</strong>芒康海通沟（K3360-K3405，数百次断道滑坡）、波密通麦排龙泥石流群（原世界泥石流博物馆）。现已建成钢筋混凝土防落石明洞与五隧两桥，但遇暴雨强降水坚决不进沟！</li>
-            <li><strong>怒江峡谷与S211绝壁飞石：</strong>八宿怒江大桥两岸千仞绝壁易发天降孤石；S211大渡河峡谷绝壁高空落石。行经必须全员关闭车窗与天窗，副驾密切观察上方悬崖动静，听闻异响加速脱离！</li>
-            <li><strong>金沙江白格滑坡堰塞湖遗址：</strong>江达波罗乡2018年连续两次数千万方滑坡截断金沙江；现布设高精度北斗与InSAR卫星雷达全天候地表形变监测，行车留意沿途电子诱导屏。</li>
-            <li><strong>滑坡逃生与避险操典：</strong>遇山体腾起浮尘或流水暴涨变浑浊（滑坡前兆），立刻驶入防落石棚洞避险；若被困塌方区且路基有悬空风险，全员带冲锋衣与卫星电话弃车撤至背坡开阔高地等待直升机救援。</li>
+            <li><strong>🔴 红色特级地灾区（强制避险）：</strong>芒康海通沟（K3360-K3405，数百次特大滑坡阻断）、八宿怒江72拐绝壁落石走廊（天降孤石砸车）、丁青孜珠寺12公里绝壁土石天路（雨雪易软化滑塌）。</li>
+            <li><strong>🟠 橙色高危地灾区（重点监控）：</strong>S211大渡河峡谷千仞绝壁飞石、波密通麦排龙泥石流群（现五隧两桥穿山）、金口大峡谷断裂崩塌、觉巴山深谷滑坡（现走特长隧道绕避）、易贡藏布滑坡遗址、羌塘冻土融沉暗坑。</li>
+            <li><strong>🟡 黄色中度地灾区（常态化巡检）：</strong>金沙江白格滑坡堰塞湖遗址（北斗+InSAR卫星形变监测网）、米林雅江大峡谷水毁泥石流、天全二郎山龙胆溪泥石流（雅康高速隧道彻底绕避）。</li>
+            <li><strong>五大保命操典：</strong>① 逢暴雨不进深沟；② 绝壁路段全关车窗与天窗潜行；③ 辨识浮尘异响滑坡四大先兆；④ 遇落石绝不减速张望加速脱离；⑤ 受困且路基开裂果断弃车撤至稳固高地！</li>
           </ul>
           <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.78rem; color: #94a3b8;">48行政区实时灾害通报与语音播报系统已上线</span>
+            <span style="font-size: 0.78rem; color: #94a3b8;">已嵌入 48 行政区实时气象与 880Hz 警报音系统</span>
             <a href="weather_road_app.html" target="_blank" style="text-decoration: none; font-size: 0.8rem; font-weight: 700; color: #38bdf8; display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3);">
               <span>⚡</span> 开启 12 大地灾雷达监控舱 ➔
             </a>
           </div>
+        </div>
+
+        <!-- Box 6: Pet Safety Shield -->
+        <div class="proto-box">
+          <div class="proto-box-title">
+            <span>🐕</span>
+            <span>携宠（家庭爱犬）全地形高危生物安全防线</span>
+          </div>
+          <ul class="proto-list">
+            <li><strong>防野兽猛禽铁律：</strong>阿里与藏北无人区常有流浪藏獒与金雕，爱犬脚掌触地必须锁紧防爆冲胸背带与加厚牵引绳，严禁松绳撒欢追逐旱獭。</li>
+            <li><strong>爪垫每日护理：</strong>札达土林、班公湖碎石滩地表尖锐干硬，每晚归宿用温水清洁肉垫并厚涂医用凡士林滋润防碎石割伤与干裂出血。</li>
+            <li><strong>水源安全防线：</strong>藏北色林错、拉昂错多为高盐碱矿化死水，严禁犬只舔舐以免诱发急性肾衰竭；全天只喂纯净瓶装水。</li>
+            <li><strong>严防寄生虫与低温：</strong>严禁靠近旱獭洞穴防止鼠疫跳蚤叮咬；藏北夜间零度以下睡在客房防风窝垫中并穿加厚防风马甲。</li>
+          </ul>
+        </div>
+
+        <!-- Box 7: Border Pass & Season Window -->
+        <div class="proto-box">
+          <div class="proto-box-title">
+            <span>🛂</span>
+            <span>边防证双轨制闭环与 46 天黄金物候窗口</span>
+          </div>
+          <ul class="proto-list">
+            <li><strong>四证合一顶层架构：</strong>林芝、山南、阿里、日喀则（户籍地出入境办齐），拉萨报备，确保全域通行合规。</li>
+            <li><strong>现实双轨制闭环：</strong>
+              <br>• <strong>轨道A（主案推荐·现场解锁）：</strong>第14天抵拉萨后，在政务中心边防窗口或正规旅行社加签日喀则全境边防证；第28天起经萨嘎 ➔ 定日白坝 ➔ 珠峰近观 ➔ 日喀则顺畅东出！
+              <br>• <strong>轨道B（兜底避让·合规无虞）：</strong>若拉萨未加签，在普兰远眺喜马拉雅西段雪峰群（景色与加乌拉同级），随后返狮泉河沿 G317 川藏北线东出闭环。</li>
+            <li><strong>物候避汛黄金中道：</strong>锁定 5月10日出发 ➔ 6月24日凯旋（共46天，总里程约7200km），完美避开 7 月横断山脉暴雨泥石流高发期。</li>
+          </ul>
+        </div>
+
+        <!-- Box 8: Equipment Cargo Checklist -->
+        <div class="proto-box">
+          <div class="proto-box-title">
+            <span>🧰</span>
+            <span>藏地 46 天极端工况物资清单与车载五大定置仓</span>
+          </div>
+          <ul class="proto-list">
+            <li><strong>机械救援仓：</strong>全尺寸备胎（冷态2.8bar） + 双缸数显12V高压充气泵 + 补胎胶条盒 + 8瓶辛烷值提升剂 + 锰钢防滑链 + 8吨拖车绳 + 应急搭电宝。</li>
+            <li><strong>银发卫勤仓：</strong>医用指夹式血氧仪 2 台 + 车载 10L 医用氧气瓶（带减压阀） + 便携氧气罐 8 瓶 + 口服补液盐III散剂 + 1.0L 不锈钢保温水壶。</li>
+            <li><strong>移动卫浴仓：</strong>1 秒快开防透光加厚更衣帐篷 + 加固铝合金折叠坐便椅 + 高分子降解凝固除臭袋 2 箱。</li>
+            <li><strong>携宠生存仓：</strong>工字型防爆冲胸背带 + 防咬嘴套 + 凡士林润肤油 + 硅胶折叠碗 + 宠物防风保暖加厚马甲。</li>
+            <li><strong>通信证照仓：</strong>天通一号卫星电话终端 + 华为/iPhone卫星短信手机 + 身份证与边防证纸质原件 + 特种旅行险保单。</li>
+          </ul>
+        </div>
+
+        <!-- Box 9: Medical Corridor -->
+        <div class="proto-box">
+          <div class="proto-box-title">
+            <span>🏥</span>
+            <span>极境通信走廊与全线三甲医院卫勤坐标网</span>
+          </div>
+          <ul class="proto-list">
+            <li><strong>林芝市人民医院（三级甲等）：</strong>林芝市巴宜区广东路226号（雪域江南低海拔卫勤枢纽）</li>
+            <li><strong>山南市人民医院（三级甲等）：</strong>山南市乃东区泽当镇湖北路1号（藏南雅江流域核心三甲保障）</li>
+            <li><strong>西藏自治区人民医院（三级甲等）：</strong>拉萨市城关区林廓北路18号（西藏医疗救治综合大本营）</li>
+            <li><strong>阿里地区人民医院（三级综合）：</strong>阿里地区噶尔县狮泉河镇文化路（阿里西极危重症救治中心）</li>
+            <li><strong>昌都市人民医院（三级甲等）：</strong>昌都市卡若区昌都中路21号（藏东横断山脉三甲保障）</li>
+            <li><strong>全国应急联动专线：</strong>交警报警 122 · 全国公路应急救援 12122 · 医疗急救 120</li>
+          </ul>
         </div>
 
       </div>
@@ -1137,7 +1274,7 @@
 
   </div>
 
-  <div id="toast">✅ 路线经纬导航点已复制到剪贴板！可在手机高德/百度地图中直接粘贴</div>
+  <div id="toast"><div id="toast">✅ 路线经纬导航点已复制到剪贴板！可在手机高德/百度地图中直接粘贴</div>
 
   <footer>
     <p>CHRONO-LOOP 5.0 动态路书全息指挥舱 · 攀枝花自驾大本营 · 49行政区纯玩闭环合规典范</p>
@@ -2094,8 +2231,10 @@
       currentDayIdx = idx;
       const data = itinerary[idx];
 
+      syncPhaseChips(idx);
+
       // HUD
-      document.getElementById("hud-day").innerText = `${data.tag} / 28`;
+      document.getElementById("hud-day").innerText = `${data.tag} / 46`;
       const hudAlt = document.getElementById("hud-alt");
       hudAlt.innerText = data.alt;
       if (data.altNum > 4200) hudAlt.style.color = "var(--rose-glow)";
@@ -2145,6 +2284,30 @@
       if (activeMini) {
         activeMini.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
+    }
+
+    
+    // Phase sync mapping: 7 strategic phases
+    const phaseStarts = [0, 4, 9, 16, 25, 32, 41];
+    function syncPhaseChips(idx) {
+      let activePhase = 0;
+      for (let p = phaseStarts.length - 1; p >= 0; p--) {
+        if (idx >= phaseStarts[p]) {
+          activePhase = p;
+          break;
+        }
+      }
+      for (let p = 0; p < phaseStarts.length; p++) {
+        const chip = document.getElementById(`phase-${p}`);
+        if (chip) {
+          if (p === activePhase) chip.classList.add("active");
+          else chip.classList.remove("active");
+        }
+      }
+    }
+
+    function jumpToPhase(startDayIdx) {
+      jumpToDay(startDayIdx);
     }
 
     // Playback Engine
